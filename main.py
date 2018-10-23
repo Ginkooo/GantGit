@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 # -*- coding: utf-8-unix -*-
 
 import datetime
@@ -81,6 +81,105 @@ t13 = gantt.Task(name='Kolejka',
                  duration=6,
                  depends_of=[t1, t12],
                  resources=[pc])
+
+tt1 = gantt.Task(name='System autoryzacji użytkownika',
+                start=datetime.date(2018, 9, 10),
+                duration=5,
+                resources=[md])
+tt2 = gantt.Task(name='System logowania i rejestracji',
+                start=datetime.date(2018, 9, 18),
+                duration=5,
+                depends_of=tt1,
+                resources=[md])
+tt3 = gantt.Task(name='System zarządzania userami',
+                start=datetime.date(2018, 9, 24),
+                duration=4,
+                depends_of=tt1,
+                resources=[md])
+tt4 = gantt.Task(name='Dodanie zarządzania pacjentami',
+                start=datetime.date(2018, 9, 29),
+                duration=5,
+                depends_of=tt1,
+                resources=[md])
+tt5 = gantt.Task(name='Dodanie zarządzania doktorami',
+                start=datetime.date(2018, 10, 4),
+                duration=5,
+                depends_of=tt1,
+                resources=[md])
+tt6 = gantt.Task(name='Dodanie obsługi grafiku i gabinetów lekarskih',
+                start=datetime.date(2018, 10, 12),
+                duration=7,
+                depends_of=tt1,
+                resources=[md])
+tt7 = gantt.Task(name='Dodanie obsługi badań lekarskich',
+                start=datetime.date(2018, 10, 20),
+                duration=5,
+                depends_of=tt1,
+                resources=[md])
+tt8 = gantt.Task(name='System konfiguracji przychodni',
+                start=datetime.date(2018, 10, 28),
+                duration=7,
+                depends_of=tt1,
+                resources=[md])
+tt9 = gantt.Task(name='System kolejki',
+                start=datetime.date(2018, 11, 7),
+                duration=6,
+                depends_of=tt1,
+                resources=[md])
+
+ttt1 = gantt.Task(name='Załorzenie projeltu BE',
+                 start=datetime.date(2018, 9, 10),
+                 duration=1,
+                 resources=[ad])
+ttt2 = gantt.Task(name='Dodanie autoryzacji',
+                 start=datetime.date(2018, 9, 10),
+                 duration=5,
+                 depends_of=[ttt1],
+                 resources=[ad])
+ttt3 = gantt.Task(name='Przypomnienie hasła',
+                 start=datetime.date(2018, 9, 16),
+                 duration=7,
+                 depends_of=[ttt2],
+                 resources=[ad])
+ttt4 = gantt.Task(name='Usunięcie JWT tokena po resetowaniu hasła',
+                 start=datetime.date(2018, 9, 25),
+                 duration=1,
+                 depends_of=[ttt3],
+                 resources=[ad])
+ttt5 = gantt.Task(name='Dadanie end pointów dla tabeli employee',
+                 start=datetime.date(2018, 9, 27),
+                 duration=4,
+                  depends_of=[ttt1],
+                 resources=[ad])
+ttt6 = gantt.Task(name='Dodanie end pointów dla tabeli role',
+                 start=datetime.date(2018, 10, 3),
+                 duration=3,
+                  depends_of=[ttt1],
+                 resources=[ad])
+ttt7 = gantt.Task(name='Dodanie end pointów dla tabeli address',
+                 start=datetime.date(2018, 10, 8),
+                 duration=4,
+                 resources=[ad])
+ttt8 = gantt.Task(name='Dodanie end pointów dla tebeli schedule oraz office',
+                 start=datetime.date(2018, 10, 12),
+                 duration=4,
+                  depends_of=[ttt1],
+                 resources=[ad])
+ttt9 = gantt.Task(name='Dodanie end pointów dla tebeli wallet',
+                 start=datetime.date(2018, 10, 18),
+                 duration=5,
+                  depends_of=[ttt1],
+                 resources=[ad])
+ttt10 = gantt.Task(name='Dodanie end pointów dla tebeli visit',
+                 start=datetime.date(2018, 10, 25),
+                 duration=5,
+                   depends_of=[ttt1],
+                 resources=[ad])
+ttt11 = gantt.Task(name='Dodanie end pointów dla tebeli payment oraz wallet_history',
+                 start=datetime.date(2018, 11, 3),
+                 duration=7,
+                   depends_of=[ttt1],
+                 resources=[ad])
 
 tasks = [v for k, v in locals().items() if k.startswith('t')]
 
